@@ -1,0 +1,3 @@
+cargo:rerun-if-changed=build/main.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/nallagonda/Kiran/seilab/contract/carpay/target/debug/build/typenum-a8bf58995374f612/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/nallagonda/Kiran/seilab/contract/carpay/target/debug/build/typenum-a8bf58995374f612/out/op.rs
