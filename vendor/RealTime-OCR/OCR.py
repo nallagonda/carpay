@@ -465,7 +465,7 @@ def ocr_stream(crop: list[int, int], source: int = 0, view_mode: int = 1, langua
 
             # Call that API
 
-            API_URL = "http://localhost:8000/verify_image_text?image_text="+text.strip()
+            API_URL = "http://localhost:8000/verify_car_licence?image_text="+text.strip()
 
             is_match = call_verify_image_text(API_URL)
             print("Is there a match :   ", is_match)
