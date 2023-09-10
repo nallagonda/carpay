@@ -58,12 +58,12 @@ def sei_blockchain_create_test(name, licnum, phone):
 
 def send_authorization_approval(owner_token, is_authorized):
 
-  API_URL = "http://localhost:8000/send_authorization_approval?owner_token="+owner_token.strip()
+  API_URL = "http://localhost:9013/api/v1/send_authorization_approval?owner_token="+owner_token.strip()
 
   print(" API_URL                    :   "+ API_URL)
 
   response = requests.get(API_URL)
-  
-  print(response)
+
+  print("After POS Successfull !"+str(response))
 
   return response.text

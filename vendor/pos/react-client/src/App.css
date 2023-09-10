@@ -36,3 +36,62 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+
+#root {
+  height: 100vh;
+}
+
+button {
+  height: 5em;
+  padding: 2em;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: lightgray;
+  color: red;
+}
+.app-container {
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+  text-align: center;
+  background: radial-gradient(
+    ellipse farthest-corner at center top,
+    #012619,
+    #000
+  );
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-container .header-container {
+  font-family: "Comfortaa", cursive;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  padding-bottom: 1rem;
+}
+
+.app-container .counter-container {
+  font-family: "Comfortaa", cursive;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  padding-bottom: 5em;
+}
+
+.app-container .buttons-container {
+  font-family: "Comfortaa", cursive;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
