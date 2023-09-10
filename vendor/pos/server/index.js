@@ -2,6 +2,8 @@ const http = require("http");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
+const querystring = require("querystring");
+
 dotenv.config({
   path: "./config.env",
 });
@@ -24,9 +26,15 @@ const socketIOMiddleware = (req, res, next) => {
 app.use(cors());
 
 // ROUTES
-app.use("/api/v1/hello", socketIOMiddleware, (req, res) => {
-  req.io.emit("message", `Hello, ${req.originalUrl}`);
-  res.send("hello world!");
+app.use("/api/v1/send_authorization_approval", socketIOMiddleware, (req, res) => {
+  const params = querystring.parse(req.url);
+  //req.io.emit("message", `POS, ${req.orginalUrl}`);
+  //req.io.emit("message", `POS, ${params['owner_token']}`);
+  req.io.emit("message", params['/owner_token']);
+
+  console.log("Authorization Successfull !!!",params['/owner_token']);
+  res.send("Authorization Successfully Sent!");
+
 });
 
 // LISTEN
