@@ -1,4 +1,5 @@
 import asyncio
+import requests
 
 def sei_blockchain_create(file, name, licnum, phone):
   print(" file_name                    :   "+ file.filename)
@@ -11,6 +12,8 @@ def sei_blockchain_create(file, name, licnum, phone):
   # Call NodeJS API for Block Chain and get Owner Token
 
   # Save to mongoDB 
+
+
 
   # Call Notification with Token send_push_notification()
 
@@ -33,3 +36,34 @@ def verify_image_text_service(image_text):
 
   return is_match
 
+def sei_blockchain_create_test(name, licnum, phone):
+  print(" name                         :   "+ name)
+  print(" licnum                       :   "+ licnum)
+  print(" phone                        :   "+ phone)
+
+  bc_token = "sei_blockchain_token"
+
+  # Call NodeJS API for Block Chain and get Owner Token
+
+  # Save to mongoDB 
+
+  
+
+  # Call Notification with Token send_push_notification()
+
+  
+  return bc_token
+
+
+
+def send_authorization_approval(owner_token, is_authorized):
+
+  API_URL = "http://localhost:8000/send_authorization_approval?owner_token="+owner_token.strip()
+
+  print(" API_URL                    :   "+ API_URL)
+
+  response = requests.get(API_URL)
+  
+  print(response)
+
+  return response.text
