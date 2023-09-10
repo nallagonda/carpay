@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload Image</title>
+</head>
+<body>
+<h1>Upload Image</h1>
+<form action="/upload-image" method="post" enctype="multipart/form-data">
+<input type="file" name="file">
+<input type="text" name="name">
+<input type="text" name="licnum">
+<input type="text" name="phone">
+<input type="submit" value="Upload">
+</form>
+<script>
+const fileInput = document.querySelector("input[name='file']");
+
+fileInput.addEventListener("change", async (event) => {
+    const file = event.target.files[0];
+
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("name", document.querySelector("input[name='name']").value);
+    formData.append("licnum", document.querySelector("input[name='licnum']").value);
+    formData.append("phone", document.querySelector("input[name='phone']").value);
+
+    // Make a POST request to the upload-image API
+    const response = await fetch("/signup_with_image", {
+        method: "POST",
+        body: formData,
+    });
+
+    // Handle the response
+    if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+    } else {
+        console.log(response.status);
+    }
+});
+</script>
+</body>
+</html>
