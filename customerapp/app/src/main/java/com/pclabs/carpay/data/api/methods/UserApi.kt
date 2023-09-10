@@ -14,6 +14,11 @@ interface UserApi {
                           @Query("licnum")  sensor:String,
                           @Query("phone") phone:String): Response<UploadResponse>
 
+
+    @POST("/authorize")
+    suspend fun authorize(@Query("owner_token")  zipCode:String,
+                          @Query("is_authorized")  sensor:String): Response<UploadResponse>
+
     companion object {
         fun getApi(): UserApi? {
             return ApiClient.client?.create(UserApi::class.java)

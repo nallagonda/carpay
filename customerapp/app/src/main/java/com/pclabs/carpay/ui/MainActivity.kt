@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
                 // Log and toast
                 deviceToken =   token
-                Log.v("deviceToken","deviceToken:Succesful:"+deviceToken)
+                //Log.v("deviceToken","deviceToken:Succesful:"+deviceToken)
                 Toast.makeText(this@MainActivity, deviceToken, Toast.LENGTH_SHORT).show()
             })
 
