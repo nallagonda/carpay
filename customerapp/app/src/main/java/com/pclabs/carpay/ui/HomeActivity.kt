@@ -19,8 +19,8 @@ class HomeActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         AlertDialog.Builder(this)
-            .setTitle("Delete entry")
-            .setMessage("Are you sure you want to delete this entry?") // Specifying a listener allows you to take an action before dismissing the dialog.
+            .setTitle("Costco , Santa Clara")
+            .setMessage("Would you like to authorize transaction using Car Pay?") // Specifying a listener allows you to take an action before dismissing the dialog.
             // The dialog is automatically dismissed when a dialog button is clicked.
             .setPositiveButton(
                 R.string.yes,

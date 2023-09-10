@@ -22,6 +22,7 @@ import com.pclabs.carpay.data.api.response.BaseResponse
 import com.pclabs.carpay.databinding.ActivityMainBinding
 import com.pclabs.carpay.utils.SessionManager
 import com.pclabs.carpay.viewmodel.LoginViewModel
+import okhttp3.internal.notifyAll
 
 
 class MainActivity : AppCompatActivity() {
@@ -102,9 +103,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun doLogin() {
-        val email = binding.txtInputEmail.text.toString()
-        val pwd = binding.txtPass.text.toString()
-        viewModel.loginUser(email = email, pwd = pwd)
+        val name = binding.txtName.text.toString()
+        val phone = binding.txtPass.text.toString()
+        val licPlate = binding.licPlate.text.toString()
+        viewModel.loginUser(name, licPlate,phone )
 
     }
 
@@ -146,16 +148,7 @@ class MainActivity : AppCompatActivity() {
         // Start the activity with camera_intent, and request pic id
         startActivityForResult(camera_intent, pic_id)
     }
-//    protected fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        // Match the request 'pic id with requestCode
-//        if (requestCode == pic_id) {
-//            // BitMap is data structure of image file which store the image in memory
-//            val photo = data.extras!!["data"] as Bitmap?
-//            // Set the image in imageview for display
-//            click_image_id?.setImageBitmap(photo)
-//        }
-//    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -166,6 +159,7 @@ class MainActivity : AppCompatActivity() {
             val photo = data?.extras!!["data"] as Bitmap?
             // Set the image in imageview for display
             click_image_id?.setImageBitmap(photo)
+            binding.licPlate.setText("SKN1010")
         }
     }
 }

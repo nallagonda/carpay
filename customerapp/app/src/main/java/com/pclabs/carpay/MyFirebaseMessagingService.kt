@@ -37,23 +37,20 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 setVibrationEnabled(true)
                 setVibrationPattern(longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400))
             }.build()
-            val intent = Intent(applicationContext, HomeActivity::class.java)
-            intent.putExtra("key", "value")
+           val intent = Intent(applicationContext, HomeActivity::class.java)
             val pendingIntent =
                 PendingIntent.getActivity(applicationContext, 0, intent, PendingIntent.FLAG_IMMUTABLE)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             NotificationManagerCompat.from(applicationContext).createNotificationChannel(mChannel)
             val notification: Notification = NotificationCompat.Builder(applicationContext, channelId)
                 .setSmallIcon(R.drawable.ic_menu_call)
-                .setContentTitle("dfsdfsdfdsfdsfds***********")
-                .setContentText("dsfsdfsdfdsfsdfsdf**************").setContentIntent(pendingIntent)
+                .setContentTitle("Costco , Santa Clara")
+                .setContentText("Would you like to authorize transaction using Car Pay?") .setContentIntent(pendingIntent)
                 .build()
             NotificationManagerCompat.from(applicationContext).notify(notifyID, notification)
+            startActivity(intent)
         }catch (e:Exception){
             e.printStackTrace()
         }
-
-
-
     }
 }

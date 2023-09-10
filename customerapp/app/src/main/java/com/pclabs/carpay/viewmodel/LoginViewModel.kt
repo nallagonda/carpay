@@ -2,28 +2,23 @@ package com.pclabs.carpay.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.pclabs.carpay.data.api.request.LoginRequest
 import com.pclabs.carpay.data.api.response.BaseResponse
-import com.pclabs.carpay.data.api.response.LoginResponse
+import com.pclabs.carpay.data.api.response.UploadResponse
 import com.pclabs.carpay.repository.UserRepository
 import kotlinx.coroutines.launch
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     val userRepo = UserRepository()
-    val loginResult: MutableLiveData<BaseResponse<LoginResponse>> = MutableLiveData()
+    val loginResult: MutableLiveData<BaseResponse<UploadResponse>> = MutableLiveData()
 
-    fun loginUser(email: String, pwd: String) {
+    fun loginUser(name: String, licencePlate: String, phone:String) {
 
         loginResult.value = BaseResponse.Loading()
         viewModelScope.launch {
             try {
 
-                val loginRequest = LoginRequest(
-                    password = pwd,
-                    email = email
-                )
-                val response = userRepo.loginUser(loginRequest = loginRequest)
+                val response = userRepo.loginUser(name, licencePlate,phone)
                 if (response?.code() == 200) {
                     loginResult.value = BaseResponse.Success(response.body())
                 } else {
