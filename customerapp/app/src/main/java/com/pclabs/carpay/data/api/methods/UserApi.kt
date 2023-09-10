@@ -16,8 +16,8 @@ interface UserApi {
 
 
     @POST("/authorize")
-    suspend fun authorize(@Query("owner_token")  zipCode:String,
-                          @Query("is_authorized")  sensor:String): Response<UploadResponse>
+    suspend fun authorize(@Query("owner_token")  ownertoken:String,
+                          @Query("is_authorized")  isAuthorized:Boolean): Response<UploadResponse>
 
     companion object {
         fun getApi(): UserApi? {

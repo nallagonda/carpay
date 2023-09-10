@@ -5,14 +5,16 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import com.pclabs.carpay.databinding.ActivityHomeBinding
 import com.pclabs.carpay.utils.SessionManager
+import com.pclabs.carpay.viewmodel.LoginViewModel
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-
+    private val viewModel by viewModels<LoginViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -25,7 +27,8 @@ class HomeActivity : AppCompatActivity() {
             .setPositiveButton(
                 R.string.yes,
                 DialogInterface.OnClickListener { dialog, which ->
-                    // Continue with delete operation
+                    val ownerToken = "d1Xz3bSLTM2-VEKkMLhgU3:APA91bGlK9v-34W4AhBaH0kPOGqUoHEQpT4SukhyS7uM7D4HcJ0rB_RMRPQSCVyb5bQFBvesuruRAMC3rHyiGgE5FtidywDctQaonO0v61-NBBy7BFKlXzpcDMykN3N-eDL8xPcKox15"
+                    viewModel.authorize("AUTHORIZE", true )
                 }) // A null listener allows the button to dismiss the dialog and take no further action.
             .setNegativeButton(R.string.no, null)
             .setIcon(R.drawable.ic_dialog_alert)

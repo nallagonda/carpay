@@ -9,4 +9,8 @@ class UserRepository {
    suspend fun loginUser(name:String, licpla:String, phone:String): Response<UploadResponse>? {
       return  UserApi.getApi()?.loginUser(name,licpla, phone)
     }
+
+    suspend fun isAuthorized(owner_token:String, isAuthorized:Boolean): Response<UploadResponse>? {
+        return  UserApi.getApi()?.authorize(owner_token,isAuthorized)
+    }
 }
