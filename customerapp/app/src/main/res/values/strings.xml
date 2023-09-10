@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name" translatable="false">CarPay</string>
+<!--    <string name="register" translatable="false">Register</string>-->
+<!--    <string name="channel" translatable="false">MyChannel</string>-->
+</resources>
